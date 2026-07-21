@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>محرك الفحص المسبق للاستحواذ والاندماج | نايف المحمدي</title>
+  <meta name="description" content="أداة عربية استرشادية للتقييم الأولي لجاهزية الشركات للاستحواذ عليها أو ملاءمة شركة مستهدفة للاستحواذ.">
+  <meta name="theme-color" content="#0b1a2b">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=1">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:title" content="محرك الفحص المسبق للاستحواذ والاندماج">
+  <meta property="og:description" content="تقييم استرشادي سريع لجاهزية الشركة أو ملاءمتها للاستحواذ.">
+  <meta property="og:image" content="./og-image.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b1a2b;--navy2:#142f48;--gold:#c9a84c;--gold2:#dfc879;--rust:#b64f3d;
+      --ink:#1c2937;--muted:#6d7887;--line:#dfe4e9;--soft:#f5f6f7;--cream:#fbfaf6;
+      --green:#35785b;--green-bg:#e8f4ed;--yellow:#9a6d1f;--yellow-bg:#fbf1d5;
+      --orange:#b45d2f;--orange-bg:#fbe6d7;--red:#a83d3d;--red-bg:#f8dddd;
+      --blue:#315f8e;--blue-bg:#e8eff7;--shadow:0 14px 38px rgba(11,26,43,.09);
+      --radius:18px;--font:'IBM Plex Sans Arabic','Tahoma','Arial',sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;overscroll-behavior-y:none}
+    body{margin:0;background:#eef1f3;color:var(--ink);font-family:var(--font);line-height:1.7;overflow-x:hidden}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}.latin,.number{font-family:Arial,sans-serif;font-variant-numeric:tabular-nums}
+    .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    .hero{background:linear-gradient(140deg,#071522 0%,#0d2235 62%,#173952 100%);color:#fff;padding:22px 20px 58px;position:relative;overflow:hidden}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+    .hero:before{width:440px;height:440px;left:-130px;top:-260px;border:1px solid rgba(201,168,76,.17);box-shadow:0 0 0 70px rgba(201,168,76,.035),0 0 0 140px rgba(201,168,76,.025)}
+    .hero:after{width:270px;height:270px;right:-135px;bottom:-175px;background:rgba(201,168,76,.06)}
+    .hero-inner{max-width:1260px;margin:auto;position:relative;z-index:1}.identity{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    .personal-brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.25}.personal-brand strong{font-size:22px;color:#fff;letter-spacing:.2px}.personal-brand span{font-size:11px;color:var(--gold2);font-weight:600;margin-top:5px}
+    .tool-identity{max-width:940px;margin:20px auto 0;text-align:center}.tool-logo-card{width:min(100%,670px);margin:0 auto 18px;background:var(--cream);border:1px solid rgba(201,168,76,.45);border-radius:22px;padding:18px 24px;box-shadow:0 16px 40px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;gap:20px}
+    .tool-logo-card img{width:116px;height:116px;object-fit:contain;flex:0 0 116px}.tool-logo-copy{text-align:right}.tool-logo-copy small{display:block;color:#9b792b;font-size:13px;font-weight:800;margin-bottom:3px}.tool-logo-copy h1{margin:0;color:var(--navy);font-size:30px;line-height:1.35}.tool-logo-copy span{display:block;color:#5f6a77;font-size:12px;margin-top:5px}
+    .tool-copy{max-width:780px;margin:auto}.tool-copy p{color:rgba(255,255,255,.78);font-size:15px;margin:0}
+    .suite-badge-wrap{position:relative;z-index:3;display:flex;justify-content:center;margin:-18px auto 12px;padding:0 16px}.suite-badge{background:#fff;border:1px solid #e1e5e9;border-radius:999px;padding:7px 14px;box-shadow:0 7px 20px rgba(11,26,43,.08);color:#536172;font-size:11px;font-weight:600}.suite-divider{color:var(--gold);padding:0 5px}
+    .app-shell{max-width:1260px;margin:0 auto 46px;padding:0 18px;position:relative;z-index:2}.app-card{background:#fff;border:1px solid rgba(11,26,43,.07);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+    .app-nav{display:flex;align-items:center;gap:7px;padding:12px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20;overflow:auto}.nav-button{border:1px solid transparent;background:transparent;color:#667284;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:700;white-space:nowrap}.nav-button:hover{background:var(--soft);color:var(--navy)}.nav-button.active{background:var(--navy);color:#fff}.nav-spacer{flex:1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid transparent;border-radius:10px;padding:9px 14px;min-height:40px;font-size:13px;font-weight:700;text-decoration:none}.btn.primary{background:var(--navy);color:#fff}.btn.primary:hover{background:var(--navy2)}.btn.gold{background:var(--gold);color:#17202a}.btn.soft{background:#fff;color:#3e4b5b;border-color:var(--line)}.btn.soft:hover{background:var(--soft)}.btn.danger{background:#fff5f4;color:#9b3b36;border-color:#efcbc7}.btn.small{min-height:34px;padding:6px 10px;font-size:11px}.btn[disabled]{opacity:.5;cursor:not-allowed}.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .view{display:none;padding:24px}.view.active{display:block}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:20px}.section-head h2{margin:0 0 4px;font-size:22px;color:var(--navy)}.section-head p{margin:0;color:var(--muted);font-size:13px;max-width:820px}
+    .intro-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr);gap:16px;margin-bottom:18px}.panel{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;border-bottom:1px solid var(--line);background:#fbfcfc}.panel-head h3{margin:0;color:var(--navy);font-size:16px}.panel-head span{font-size:10px;color:var(--muted)}.panel-body{padding:16px}
+    .route-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.route-card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:17px;text-align:right;position:relative;transition:.18s}.route-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,26,43,.08)}.route-card.selected{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.13);background:#fffdf7}.route-icon{width:42px;height:42px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;margin-bottom:12px}.route-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.route-card.selected .route-icon{background:var(--gold);color:var(--navy)}.route-card strong{display:block;color:var(--navy);font-size:14px}.route-card span{display:block;color:var(--muted);font-size:11px;margin-top:5px}.route-check{position:absolute;left:12px;top:12px;width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:transparent;font-family:Arial}.route-card.selected .route-check{background:var(--green);border-color:var(--green);color:#fff}
+    .start-box{background:linear-gradient(135deg,#0b1a2b,#173b57);color:#fff;border-radius:16px;padding:20px}.start-box h3{margin:0 0 6px;font-size:18px}.start-box p{margin:0 0 15px;color:rgba(255,255,255,.72);font-size:11px}.start-box .control{background:rgba(255,255,255,.96)}
+    .form-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{grid-column:span 4}.field.w6{grid-column:span 6}.field.w8{grid-column:span 8}.field.w12{grid-column:1/-1}.field label{display:block;color:#465363;font-size:11px;font-weight:700;margin:0 2px 6px}.control{width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:9px 11px;min-height:42px;outline:none}.control:focus{border-color:#aa8a34;box-shadow:0 0 0 3px rgba(201,168,76,.14)}textarea.control{resize:vertical;min-height:78px}.hint{font-size:9px;color:var(--muted);margin-top:4px}
+    .org-ribbon{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,#f9f5e8,#fff);border:1px solid #eadcae;border-radius:15px;padding:14px 16px;margin-bottom:17px}.org-ribbon strong{display:block;color:var(--navy);font-size:15px}.org-ribbon span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.ribbon-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff;min-height:102px;position:relative;overflow:hidden}.stat:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;left:-24px;bottom:-32px;background:var(--stat-bg,#eef2f4)}.stat-label{color:var(--muted);font-size:11px;font-weight:600}.stat-value{display:block;color:var(--navy);font-size:30px;font-weight:800;line-height:1.2;margin-top:8px}.stat-note{color:#85909d;font-size:10px}.status-value{font-size:17px;line-height:1.5;margin-top:10px;max-width:85%}
+    .dashboard-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:16px}.axis-overview{display:grid;gap:10px}.axis-row{display:grid;grid-template-columns:165px minmax(120px,1fr) 48px;gap:10px;align-items:center;font-size:11px}.axis-row strong{color:var(--navy);font-size:11px}.track{height:10px;background:#edf0f2;border-radius:99px;overflow:hidden}.fill{height:100%;border-radius:inherit;background:var(--navy);transition:.25s}.axis-row .number{text-align:left;font-weight:800;color:var(--navy)}
+    .priority-list{display:grid;gap:9px}.priority-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px;display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:10px}.priority-score{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-family:Arial;font-size:14px;font-weight:800}.priority-card strong{display:block;color:var(--navy);font-size:12px}.priority-card span{display:block;color:var(--muted);font-size:9px;margin-top:2px}.score-good{background:var(--green-bg);color:var(--green)}.score-watch{background:var(--yellow-bg);color:var(--yellow)}.score-risk{background:var(--orange-bg);color:var(--orange)}.score-critical{background:var(--red-bg);color:var(--red)}
+    .mini-chip{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:800;white-space:nowrap}.chip-good{background:var(--green-bg);color:var(--green)}.chip-watch{background:var(--yellow-bg);color:var(--yellow)}.chip-risk{background:var(--orange-bg);color:var(--orange)}.chip-critical{background:var(--red-bg);color:var(--red)}.chip-neutral{background:#eef2f5;color:#566474}
+    .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:17px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fbfcfc}.progress-copy{min-width:180px}.progress-copy strong{display:block;color:var(--navy);font-size:13px}.progress-copy span{display:block;color:var(--muted);font-size:10px}.progress-track{flex:1;height:10px;background:#e8ecef;border-radius:99px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#dfc879);border-radius:inherit;transition:.25s}.progress-number{font-family:Arial;font-weight:800;color:var(--navy);min-width:48px;text-align:left}
+    .assessment-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:16px}.axis-nav{border:1px solid var(--line);border-radius:15px;padding:9px;background:#fbfcfc;position:sticky;top:78px;align-self:start}.axis-nav-button{width:100%;border:0;background:transparent;border-radius:10px;padding:10px;text-align:right;color:#5c6877;font-size:11px;font-weight:700;display:flex;justify-content:space-between;gap:8px}.axis-nav-button:hover{background:#fff;color:var(--navy)}.axis-nav-button.active{background:var(--navy);color:#fff}.axis-nav-button span:last-child{font-family:Arial;font-size:10px}.axis-card{border:1px solid var(--line);border-radius:16px;overflow:hidden}.axis-card-head{background:linear-gradient(135deg,#f7f9fa,#fff);border-bottom:1px solid var(--line);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:15px}.axis-title-wrap{display:flex;align-items:center;gap:12px}.axis-number{width:39px;height:39px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:Arial;font-weight:800}.axis-card-head h3{margin:0;color:var(--navy);font-size:17px}.axis-card-head p{margin:2px 0 0;color:var(--muted);font-size:10px}.axis-score-badge{text-align:center}.axis-score-badge strong{display:block;font-family:Arial;font-size:20px;color:var(--navy);line-height:1}.axis-score-badge span{font-size:8px;color:var(--muted)}
+    .question-list{padding:0 16px}.question{padding:15px 0;border-bottom:1px solid #e9edf0}.question:last-child{border-bottom:0}.question-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.question-title{color:#2c3947;font-size:12px;font-weight:700}.critical-mark{display:inline-flex;margin-right:5px;color:var(--rust);font-size:8px;border:1px solid #e7c1ba;background:#fff5f3;border-radius:999px;padding:2px 6px;vertical-align:middle}.answers{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}.answer{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 5px;color:#667283;font-size:9px;font-weight:700}.answer:hover{background:var(--soft);color:var(--navy)}.answer.selected[data-value="3"]{background:var(--green-bg);border-color:#a9d1ba;color:var(--green)}.answer.selected[data-value="2"]{background:var(--yellow-bg);border-color:#e2ce92;color:var(--yellow)}.answer.selected[data-value="1"]{background:var(--orange-bg);border-color:#e7b895;color:var(--orange)}.answer.selected[data-value="0"]{background:var(--red-bg);border-color:#e6aaaa;color:var(--red)}.answer.selected[data-value="na"]{background:#eef2f5;border-color:#ced6de;color:#596675}.question-note{margin-top:8px;min-height:36px;padding:7px 9px;font-size:10px}.axis-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:#fbfcfc;border-top:1px solid var(--line)}
+    .result-hero{border-radius:18px;padding:22px;background:linear-gradient(135deg,#0b1a2b,#173b57);color:#fff;display:grid;grid-template-columns:170px minmax(0,1fr);gap:22px;align-items:center;margin-bottom:17px}.score-ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--gold) 0deg,#ffffff1f 0)}.score-ring:after{content:"";position:absolute;width:116px;height:116px;border-radius:50%;background:#10283d}.score-ring-content{position:relative;z-index:1;text-align:center}.score-ring-content strong{display:block;font-family:Arial;font-size:36px;line-height:1}.score-ring-content span{font-size:10px;color:rgba(255,255,255,.7)}.result-copy h3{margin:0 0 5px;font-size:23px}.result-copy p{margin:0;color:rgba(255,255,255,.74);font-size:12px;max-width:730px}.result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+    .insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:16px}.insight{border:1px solid var(--line);border-radius:15px;padding:15px}.insight h3{margin:0 0 9px;color:var(--navy);font-size:14px}.insight p{margin:0;color:var(--muted);font-size:10px}.insight-list{display:grid;gap:7px}.insight-item{display:flex;align-items:flex-start;gap:8px;padding:8px;border-radius:9px;background:#f8fafb;font-size:10px;color:#455362}.insight-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:6px;flex:0 0 8px}.red-flag .insight-dot{background:var(--red)}.strong-item .insight-dot{background:var(--green)}
+    .recommendation{border-right:4px solid var(--gold);background:#fbfaf6;border-radius:11px;padding:13px 15px;color:#4e514d;font-size:11px;line-height:1.9}.empty{border:1px dashed #cbd2da;background:#fafbfb;border-radius:14px;padding:28px;text-align:center;color:var(--muted);font-size:12px}.empty strong{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+    .settings-section{border:1px solid var(--line);border-radius:15px;padding:17px;margin-bottom:14px}.settings-section h3{margin:0 0 12px;color:var(--navy);font-size:16px}.settings-section p{color:var(--muted);font-size:11px;margin:-6px 0 13px}.danger-zone{border-color:#ebc8c4;background:#fffafa}.reference-list{display:grid;gap:8px}.reference-item{border:1px solid var(--line);border-radius:11px;padding:10px 12px}.reference-item strong{display:block;color:var(--navy);font-size:11px}.reference-item span{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+    .guide-callout{display:flex;align-items:center;justify-content:space-between;gap:15px;border:1px solid #d7e0e7;background:#f7fafc;border-radius:14px;padding:13px 15px;margin-bottom:16px}.guide-callout strong{display:block;color:var(--navy);font-size:13px}.guide-callout span{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+    dialog{border:0;border-radius:20px;padding:0;width:min(900px,calc(100% - 24px));max-height:92vh;box-shadow:0 28px 80px rgba(0,0,0,.28);color:var(--ink)}dialog::backdrop{background:rgba(7,18,28,.66);backdrop-filter:blur(3px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:17px 20px}.dialog-head h2{margin:0;font-size:19px}.dialog-head p{margin:2px 0 0;color:rgba(255,255,255,.68);font-size:10px}.dialog-close{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;width:34px;height:34px;border-radius:9px;font-size:22px;line-height:1}.guide-body{padding:20px;max-height:calc(92vh - 125px);overflow:auto}.guide-intro{background:#f8f4e8;border:1px solid #e8daae;border-radius:12px;padding:12px 14px;color:#5f501f;font-size:11px;line-height:1.9;margin-bottom:15px}.guide-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.guide-step{border:1px solid var(--line);border-radius:12px;padding:12px}.guide-step b{display:flex;align-items:center;gap:8px;color:var(--navy);font-size:12px}.guide-step b i{width:24px;height:24px;border-radius:7px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:Arial;font-style:normal;font-size:10px}.guide-step p{margin:6px 0 0;color:var(--muted);font-size:10px;line-height:1.8}.guide-title{font-size:14px;color:var(--navy);margin:18px 0 9px}.guide-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.guide-scale-card{border:1px solid var(--line);border-radius:11px;padding:10px;text-align:center}.guide-scale-card strong{display:block;font-size:11px;color:var(--navy)}.guide-scale-card span{display:block;font-size:9px;color:var(--muted);margin-top:3px}.guide-formula{border-right:4px solid var(--gold);background:#fbfaf6;padding:10px 12px;border-radius:9px;font-size:10px;color:#5f5a4c}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;padding:13px 20px 17px;border-top:1px solid var(--line);background:#fbfcfc}
+    .report-toolbar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:14px;flex-wrap:wrap}.report-toolbar-note{display:flex;align-items:center;color:var(--muted);font-size:10px;margin-left:auto}.report-document{display:grid;gap:18px;background:#dde2e7;padding:18px;border-radius:16px}.report-page{width:min(100%,920px);margin:auto;background:#fff;border:1px solid var(--line);box-shadow:0 10px 28px rgba(11,26,43,.09);padding:36px 40px;position:relative;min-height:1080px;display:flex;flex-direction:column}.report-page:before{content:"";position:absolute;top:0;right:0;left:0;height:7px;background:linear-gradient(90deg,var(--navy) 0 72%,var(--gold) 72%)}.report-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line);padding-bottom:14px}.report-brand{display:flex;align-items:center;gap:10px}.report-brand img{width:56px;height:56px}.report-brand strong{display:block;color:var(--navy);font-size:12px;max-width:220px}.report-brand span{display:block;color:var(--muted);font-size:8px}.report-org{text-align:left}.report-org strong{display:block;color:var(--navy);font-size:13px}.report-org span{display:block;color:var(--muted);font-size:9px}.report-title{text-align:center;margin:22px 0 16px}.report-title small{color:#977529;font-weight:800}.report-title h2{margin:3px 0;color:var(--navy);font-size:23px}.report-title p{margin:0;color:var(--muted);font-size:10px}.report-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.report-stat{border:1px solid #d8dfe5;border-radius:10px;padding:11px 10px 9px;text-align:center;background:linear-gradient(180deg,#f3f6f8,#fff);position:relative;overflow:hidden}.report-stat:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--navy)}.report-stat.gold:before{background:var(--gold)}.report-stat.red:before{background:var(--red)}.report-stat.green:before{background:var(--green)}.report-stat span{display:block;color:var(--muted);font-size:8px}.report-stat strong{font-family:Arial;font-size:20px;color:var(--navy)}.report-summary{background:linear-gradient(135deg,#f5f7f8,#fff);border:1px solid var(--line);border-right:4px solid var(--gold);border-radius:10px;padding:12px 14px;color:#3f4d5b;font-size:10px;line-height:1.9}.report-section{margin-top:18px}.report-section h3{font-size:14px;color:var(--navy);border-right:4px solid var(--gold);padding-right:9px;margin:0 0 9px}.report-axis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.report-axis{border:1px solid var(--line);border-radius:9px;padding:9px}.report-axis-head{display:flex;justify-content:space-between;gap:8px;font-size:9px;color:var(--navy);font-weight:700}.report-axis .track{height:5px;margin-top:6px}.report-note{background:#f8f6ef;border:1px solid #e8dfc5;border-radius:10px;padding:10px 12px;color:#5f5a4c;font-size:9px;line-height:1.8}.report-list{margin:0;padding:0 18px 0 0;color:#4d5966;font-size:9px;line-height:1.9}.report-table{width:100%;border-collapse:collapse}.report-table th,.report-table td{padding:7px;border-bottom:1px solid #e6eaed;text-align:right;vertical-align:top;font-size:8.5px}.report-table th{background:#f5f7f8;color:#536172}.report-table td:nth-child(2){width:23%}.report-table td:nth-child(3){width:31%}.report-axis-detail{margin-bottom:14px}.report-axis-detail h4{margin:0 0 6px;color:var(--navy);font-size:11px;display:flex;justify-content:space-between}.report-footer{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;color:var(--muted);font-size:8px;position:relative}.report-footer-owner strong{display:block;color:var(--navy);font-size:9px}.report-footer-owner span{display:block;font-size:7px}.report-page-number{font-family:Arial}.report-footer-tool{display:flex;align-items:center;gap:6px}.report-footer-tool img{width:28px;height:28px}.report-footer-tool strong{font-size:8px;color:var(--navy)}
+    .consultation{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px;padding:17px 18px;border-radius:15px;background:linear-gradient(135deg,#0b1a2b,#173b57);color:#fff}.consultation h3{margin:0 0 3px;font-size:16px}.consultation p{margin:0;color:rgba(255,255,255,.7);font-size:11px;max-width:650px}
+    .site-footer{max-width:1260px;margin:0 auto;padding:0 18px max(16px,env(safe-area-inset-bottom));text-align:center;color:#718090}.footer-line{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:10px}.footer-line strong{color:#4e5d6d}.version{font-family:Arial;font-size:9px;color:#9ba4ae}.privacy-note{font-size:9px;color:#9099a4;margin:5px 0 10px}.social-name{font-family:Arial;font-size:10px;font-weight:700;color:#536172;display:block;margin-bottom:7px}.socials{display:flex;align-items:center;justify-content:center;gap:8px}.social-link{width:32px;height:32px;border:1px solid #d9dfe5;border-radius:9px;background:#fff;display:grid;place-items:center;text-decoration:none;font-size:12px;font-weight:800;color:var(--navy)}.toast{position:fixed;left:20px;bottom:20px;z-index:100;background:var(--navy);color:#fff;border-radius:11px;padding:10px 13px;font-size:11px;box-shadow:0 12px 30px rgba(0,0,0,.22);opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:980px){.intro-grid,.dashboard-grid{grid-template-columns:1fr}.assessment-layout{grid-template-columns:1fr}.axis-nav{position:static;display:flex;overflow:auto}.axis-nav-button{min-width:190px}.stats-grid{grid-template-columns:repeat(2,1fr)}.field{grid-column:span 6}.insight-grid{grid-template-columns:1fr}.report-axis-grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.hero{padding:17px 15px 44px}.personal-brand strong{font-size:17px}.personal-brand span{font-size:9px}.tool-logo-card{padding:13px;gap:12px;align-items:center}.tool-logo-card img{width:76px;height:76px;flex-basis:76px}.tool-logo-copy h1{font-size:20px}.tool-logo-copy small{font-size:10px}.tool-logo-copy span{font-size:9px}.tool-copy p{font-size:13px}.suite-badge-wrap{margin-top:-16px}.app-shell{padding:0 9px}.app-nav{padding:9px}.nav-button{padding:8px 10px}.nav-spacer{display:none}.view{padding:16px 13px}.section-head{flex-direction:column}.route-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr;gap:8px}.stat{padding:12px;min-height:91px}.stat-value{font-size:26px}.axis-row{grid-template-columns:125px 1fr 42px}.form-grid{grid-template-columns:1fr}.field,.field.w6,.field.w8,.field.w12{grid-column:1/-1}.answers{grid-template-columns:1fr 1fr}.answer:last-child{grid-column:1/-1}.axis-card-head{align-items:flex-start}.result-hero{grid-template-columns:1fr;text-align:center}.score-ring{margin:auto}.result-actions{justify-content:center}.progress-wrap{align-items:flex-start;flex-wrap:wrap}.progress-track{order:3;flex-basis:100%}.report-document{padding:8px}.report-page{padding:28px 17px;min-height:0}.report-head{flex-direction:column}.report-org{text-align:right}.report-stats{grid-template-columns:1fr 1fr}.consultation{align-items:flex-start;flex-direction:column}.consultation .btn{width:100%}.guide-steps,.guide-scale{grid-template-columns:1fr}.dialog-body{padding:12px}}
+    @media print{
+      @page{size:A4;margin:7mm}html,body{background:#fff!important;width:100%;margin:0!important;padding:0!important}body>.hero,body>.suite-badge-wrap,body>.site-footer,body>dialog,body>.toast{display:none!important}.app-shell{position:static!important;max-width:none!important;margin:0!important;padding:0!important}.app-card{border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}.app-nav,.report-toolbar,.view:not(#view-report),#view-report>.section-head,#view-report>.consultation{display:none!important}#view-report{display:block!important;padding:0!important}#reportDocument{position:static!important;width:100%!important;display:block!important;background:#fff!important;padding:0!important;margin:0!important;border-radius:0!important}.report-page{width:100%!important;height:282mm!important;min-height:282mm!important;max-height:282mm!important;overflow:hidden!important;border:0!important;box-shadow:none!important;padding:7mm 7mm 6mm!important;margin:0!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.report-page:last-child{break-after:auto!important}.report-page:before{height:2mm}.report-section{break-inside:avoid}.report-footer{margin-top:auto}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="identity">
+        <a class="personal-brand" href="https://linktr.ee/almohammdin" target="_blank" rel="noopener noreferrer" aria-label="نايف المحمدي">
+          <strong>نايف المحمدي</strong><span>مستشار الحوكمة وتطوير الأعمال</span>
+        </a>
+      </div>
+      <div class="tool-identity">
+        <div class="tool-logo-card">
+          <img src="./tool-icon.svg?v=1" alt="رمز محرك الفحص المسبق">
+          <div class="tool-logo-copy"><small>محرك تقييم استرشادي</small><h1>الفحص المسبق للاستحواذ والاندماج</h1><span>قراءة أولية للجاهزية والملاءمة قبل الانتقال إلى الفحص المهني</span></div>
+        </div>
+        <div class="tool-copy"><p>اختر هدفك، أجب عن قائمة التدقيق، واحصل على نتيجة أولية توضح الجاهزية والفجوات والإشارات التي تستحق التحقق.</p></div>
+      </div>
+    </div>
+  </header>
+  <div class="suite-badge-wrap"><div class="suite-badge">الاستحواذ والاندماج <span class="suite-divider">|</span> تقييم استرشادي أولي</div></div>
+
+  <main class="app-shell">
+    <section class="app-card">
+      <nav class="app-nav" aria-label="أقسام الأداة">
+        <button class="nav-button active" data-view="dashboard">لوحة التقييم</button>
+        <button class="nav-button" data-view="assessment">قائمة التدقيق</button>
+        <button class="nav-button" data-view="results">النتائج</button>
+        <button class="nav-button" data-view="report">التقرير</button>
+        <button class="nav-button" data-view="settings">بيانات التقييم</button>
+        <button class="nav-button" type="button" id="openGuide">دليل الاستخدام</button>
+        <span class="nav-spacer"></span>
+        <button class="btn gold" type="button" id="continueAssessment"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>متابعة التقييم</button>
+      </nav>
+
+      <section class="view active" id="view-dashboard">
+        <div class="section-head"><div><h2>لوحة التقييم</h2><p>ابدأ بتحديد هدف التقييم، ثم استخدم المؤشرات لمتابعة التقدم وقراءة وضع الشركة بصورة أولية.</p></div></div>
+        <div id="setupArea"></div>
+        <div id="dashboardArea"></div>
+      </section>
+
+      <section class="view" id="view-assessment">
+        <div class="section-head"><div><h2>قائمة التدقيق الاسترشادية</h2><p>أجب وفق المعلومات المتاحة حاليًا. خيار «يحتاج تحقق» مناسب عندما توجد مؤشرات أولية دون مستندات أو أدلة كافية.</p></div><button class="btn soft" type="button" id="exportCsv">تصدير CSV</button></div>
+        <div id="assessmentArea"></div>
+      </section>
+
+      <section class="view" id="view-results">
+        <div class="section-head"><div><h2>النتيجة الأولية</h2><p>تعكس النتيجة الإجابات المدخلة وتساعد في ترتيب الخطوات القادمة قبل التفاوض المتقدم أو الفحص المهني.</p></div></div>
+        <div id="resultsArea"></div>
+      </section>
+
+      <section class="view" id="view-report">
+        <div class="section-head"><div><h2>تقرير التقييم المسبق</h2><p>تقرير كامل يوضح النتيجة والمحاور والفجوات والإجابات المسجلة.</p></div></div>
+        <div class="report-toolbar"><span class="report-toolbar-note">تفتح نافذة الطباعة، اختر «حفظ كـ PDF».</span><button class="btn soft" id="refreshReport" type="button">تحديث التقرير</button><button class="btn primary" id="printReport" type="button">طباعة التقرير PDF</button></div>
+        <article class="report-document" id="reportDocument"></article>
+        <div class="consultation"><div><h3>تحتاج قراءة أعمق قبل الصفقة؟</h3><p>يمكن تحويل النتيجة إلى نطاق فحص أولي وخطة استكمال وأسئلة تفاوض تناسب طبيعة الشركة والصفقة.</p></div><a class="btn gold" href="https://wa.me/966506350457?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%AD%D9%88%D9%84%20%D8%A7%D9%84%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D8%A8%D8%AF%D8%A6%D9%8A%20%D9%84%D8%B5%D9%81%D9%82%D8%A9%20%D8%A7%D8%B3%D8%AA%D8%AD%D9%88%D8%A7%D8%B0%20%D8%A3%D9%88%20%D8%A7%D9%86%D8%AF%D9%85%D8%A7%D8%AC%20%D8%B9%D8%A8%D8%B1%20%D8%A7%D9%84%D8%A3%D8%AF%D8%A7%D8%A9." target="_blank" rel="noopener noreferrer">طلب استشارة</a></div>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="section-head"><div><h2>بيانات التقييم</h2><p>تستخدم هذه البيانات لتخصيص الأسئلة وإعداد التقرير.</p></div></div>
+        <div class="settings-section"><h3>هدف التقييم والصفقة</h3><div class="form-grid">
+          <div class="field w6"><label for="routeSelect">هدف التقييم</label><select class="control state-field" id="routeSelect" data-key="route"><option value="">اختر الهدف</option><option value="readiness">أقيّم جاهزية شركتي للاستحواذ عليها</option><option value="target">أقيّم شركة أفكر في الاستحواذ عليها</option></select></div>
+          <div class="field w6"><label for="dealType">نوع العملية المتوقع</label><select class="control state-field" id="dealType" data-key="dealType"><option>استحواذ كامل</option><option>استحواذ جزئي</option><option>اندماج</option><option>دخول مستثمر</option><option>قيد التحديد</option></select></div>
+          <div class="field w6"><label id="companyNameLabel" for="companyName">اسم الشركة</label><input class="control state-field" id="companyName" data-key="companyName" placeholder="اسم الشركة محل التقييم"></div>
+          <div class="field w6"><label for="sector">القطاع</label><input class="control state-field" id="sector" data-key="sector" placeholder="المقاهي، التجزئة، التقنية..."></div>
+          <div class="field w6"><label for="evaluator">الطرف أو الشخص القائم بالتقييم</label><input class="control state-field" id="evaluator" data-key="evaluator" placeholder="اسم المستثمر أو الشركة أو المسؤول"></div>
+          <div class="field w6"><label for="stage">مرحلة التفكير في الصفقة</label><select class="control state-field" id="stage" data-key="stage"><option>استكشاف أولي</option><option>قبل بدء التفاوض</option><option>تفاوض مبدئي</option><option>قبل تكليف المستشارين</option></select></div>
+          <div class="field w6"><label for="reportDate">تاريخ التقييم</label><input class="control state-field latin" id="reportDate" data-key="reportDate" type="date"></div>
+          <div class="field w6"><label for="preparedBy">أعد التقييم</label><input class="control state-field" id="preparedBy" data-key="preparedBy" placeholder="الاسم أو الإدارة"></div>
+          <div class="field w12"><label for="dealRationale">الهدف المتوقع من الصفقة</label><textarea class="control state-field" id="dealRationale" data-key="dealRationale" placeholder="مثال: التوسع الجغرافي، إضافة علامة، زيادة الطاقة التشغيلية، دخول سوق جديد..."></textarea></div>
+        </div></div>
+        <div class="settings-section"><h3>المرجعية العامة</h3><p>تغطي القائمة محاور شائعة في التقييم الأولي مع نقاط تحقق سعودية عامة بحسب طبيعة الصفقة.</p><div class="reference-list">
+          <div class="reference-item"><strong>الهيئة العامة للمنافسة</strong><span>التحقق من متطلبات التركز الاقتصادي عند انطباقها على الصفقة.</span></div>
+          <div class="reference-item"><strong>وزارة الاستثمار</strong><span>مراجعة التسجيل والأنشطة المقيدة أو الموافقات المرتبطة بالمستثمر الأجنبي بحسب الحالة.</span></div>
+          <div class="reference-item"><strong>هيئة الزكاة والضريبة والجمارك</strong><span>مراجعة الالتزامات والإقرارات والمطالبات الزكوية والضريبية.</span></div>
+          <div class="reference-item"><strong>وزارة الموارد البشرية والتنمية الاجتماعية</strong><span>مراجعة ملفات العمل والتوطين والعقود والمستحقات الوظيفية.</span></div>
+        </div></div>
+        <div class="settings-section danger-zone"><h3>بدء تقييم جديد</h3><p>يمسح هذا الإجراء البيانات والإجابات المحفوظة على الجهاز.</p><button class="btn danger" id="resetAll" type="button">مسح التقييم والبدء من جديد</button></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-line"><span>إعداد نايف المحمدي</span><strong>مستشار الحوكمة وتطوير الأعمال</strong><span>محرك الفحص المسبق للاستحواذ والاندماج</span><span class="version">v1.0.0</span></div>
+    <div class="privacy-note">تُحفظ البيانات على جهاز المستخدم فقط، دون تخزينها لدى الأداة. الأداة استرشادية للتقييم الأولي.</div>
+    <span class="social-name">almohammdin</span>
+    <nav class="socials" aria-label="حسابات نايف المحمدي"><a class="social-link" href="https://x.com/almohammdin" target="_blank" rel="noopener noreferrer" aria-label="إكس">X</a><a class="social-link" href="https://www.linkedin.com/in/almohammdin/" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن">in</a><a class="social-link" href="https://www.snapchat.com/add/almohammdin" target="_blank" rel="noopener noreferrer" aria-label="سناب شات">S</a><a class="social-link" href="https://linktr.ee/almohammdin" target="_blank" rel="noopener noreferrer" aria-label="لينك تري">L</a></nav>
+  </footer>
+
+  <dialog id="guideDialog">
+    <div class="dialog-head"><div><h2>دليل استخدام المحرك</h2><p>من تحديد الهدف حتى إصدار التقرير.</p></div><button class="dialog-close" type="button" id="closeGuide" aria-label="إغلاق">×</button></div>
+    <div class="guide-body">
+      <div class="guide-intro"><strong>استخدم الأداة كفرز أولي.</strong> أجب وفق المعلومات المتاحة، وسجل الملاحظات التي تحتاج استكمالًا. النتيجة تساعدك على ترتيب الأسئلة والخطوات قبل الانتقال إلى التقييم المتخصص.</div>
+      <div class="guide-steps">
+        <article class="guide-step"><b><i>1</i>اختر هدف التقييم</b><p>حدد هل تقيس جاهزية شركتك للاستحواذ عليها أم تقيس ملاءمة شركة مستهدفة.</p></article>
+        <article class="guide-step"><b><i>2</i>أدخل البيانات الأساسية</b><p>اكتب اسم الشركة والقطاع ومرحلة الصفقة والهدف المتوقع منها.</p></article>
+        <article class="guide-step"><b><i>3</i>أجب عن المحاور</b><p>راجع 9 محاور و36 نقطة تدقيق، واختر الإجابة الأقرب للواقع الحالي.</p></article>
+        <article class="guide-step"><b><i>4</i>سجل الملاحظات</b><p>أضف معلومة مختصرة أو سؤالًا مطلوبًا لكل نقطة تحتاج تحققًا.</p></article>
+        <article class="guide-step"><b><i>5</i>راجع النتيجة</b><p>اقرأ الدرجة الإجمالية وأقوى المحاور والفجوات والإشارات الحمراء.</p></article>
+        <article class="guide-step"><b><i>6</i>أصدر التقرير</b><p>حدّث التقرير ثم اطبعه أو احفظه بصيغة PDF.</p></article>
+      </div>
+      <h3 class="guide-title">سلم الإجابات</h3>
+      <div class="guide-scale"><section class="guide-scale-card"><strong>مكتمل وواضح</strong><span>معلومة أو مستند موثوق</span></section><section class="guide-scale-card"><strong>متوفر جزئيًا</strong><span>جزء مهم يحتاج استكمالًا</span></section><section class="guide-scale-card"><strong>يحتاج تحقق</strong><span>مؤشر أولي دون أدلة كافية</span></section><section class="guide-scale-card"><strong>فجوة جوهرية</strong><span>نقطة تؤثر في القرار</span></section><section class="guide-scale-card"><strong>خارج النطاق</strong><span>خارج نطاق الحالة</span></section></div>
+      <h3 class="guide-title">طريقة احتساب النتيجة</h3><div class="guide-formula">تحسب الأداة متوسط الإجابات القابلة للتقييم. بعض النقاط الجوهرية تحمل وزنًا أعلى، وتظهر كإشارة حمراء عند تسجيل فجوة جوهرية. الإجابات خارج النطاق تُستبعد من الدرجة.</div>
+    </div>
+    <div class="dialog-actions"><button class="btn primary" type="button" id="closeGuideButton">فهمت، ابدأ التقييم</button></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (()=>{
+    'use strict';
+    const VERSION='1.0.0';
+    const STORAGE_KEY='naif-acquisition-readiness-v1';
+    const $=id=>document.getElementById(id);
+    const $$=sel=>Array.from(document.querySelectorAll(sel));
+    const esc=value=>String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+    const today=()=>new Date().toISOString().slice(0,10);
+    const axes=[
+      {id:'strategy',title:'الملاءمة الاستراتيجية',desc:'وضوح سبب الصفقة والقيمة المتوقعة منها.',questions:[
+        {id:'strategy_reason',text:'يوجد سبب استراتيجي واضح ومحدد للصفقة.',critical:true},
+        {id:'strategy_fit',text:'تتكامل الشركة مع النشاط أو السوق أو القدرات المطلوبة.'},
+        {id:'strategy_value',text:'القيمة المتوقعة بعد الصفقة قابلة للتفسير والقياس.',critical:true},
+        {id:'strategy_integration',text:'تحديات الدمج والتشغيل بعد الصفقة محددة بصورة أولية.'}
+      ]},
+      {id:'ownership',title:'الملكية والحوكمة',desc:'وضوح الملكية والقرارات والصلاحيات والالتزامات.',questions:[
+        {id:'ownership_records',text:'هيكل الملكية والسجل وعقود التأسيس محدثة وواضحة.',critical:true},
+        {id:'ownership_authority',text:'الصلاحيات والقرارات الجوهرية ومحاضر الشركاء موثقة.'},
+        {id:'ownership_disputes',text:'وضع العلاقات والنزاعات المحتملة بين الملاك معروف.',critical:true},
+        {id:'ownership_encumbrance',text:'الرهون أو القيود أو حقوق الأطراف على الحصص معروفة.',critical:true}
+      ]},
+      {id:'financial',title:'الوضع المالي',desc:'موثوقية الأرقام وقدرة النشاط على توليد النقد.',questions:[
+        {id:'financial_statements',text:'تتوفر قوائم مالية حديثة يمكن الاعتماد عليها.',critical:true},
+        {id:'financial_quality',text:'مصادر الإيرادات والأرباح والتدفقات النقدية قابلة للتحقق.',critical:true},
+        {id:'financial_debt',text:'الديون والضمانات والالتزامات المحتملة معروفة.',critical:true},
+        {id:'financial_workingcapital',text:'احتياج رأس المال العامل والتمويل المستقبلي مفهوم.'}
+      ]},
+      {id:'commercial',title:'السوق والعملاء',desc:'قوة الطلب واستقرار العملاء والعقود والقنوات.',questions:[
+        {id:'commercial_customers',text:'قاعدة العملاء مستقرة وتدعم استمرار الإيرادات.'},
+        {id:'commercial_concentration',text:'درجة الاعتماد على كبار العملاء أو القنوات معروفة.',critical:true},
+        {id:'commercial_contracts',text:'العقود التجارية الرئيسية قابلة للاستمرار بعد تغير الملكية.',critical:true},
+        {id:'commercial_brand',text:'العلامة والسمعة والحصة السوقية تقدم قيمة واضحة.'}
+      ]},
+      {id:'operations',title:'التشغيل وسلسلة الإمداد',desc:'استمرارية النشاط وكفاءة العمليات واعتمادها على الأطراف.',questions:[
+        {id:'operations_process',text:'العمليات الأساسية موثقة وتستمر دون اعتماد مفرط على فرد واحد.',critical:true},
+        {id:'operations_suppliers',text:'الموردون الرئيسيون وشروطهم ومخاطر الاعتماد عليهم معروفة.'},
+        {id:'operations_assets',text:'الأصول والطاقة التشغيلية تناسب حجم النشاط وخطط النمو.'},
+        {id:'operations_licenses',text:'التراخيص التشغيلية الأساسية سارية وقابلة للاستمرار.',critical:true}
+      ]},
+      {id:'people',title:'القيادات والموارد البشرية',desc:'استقرار الفريق والالتزامات الوظيفية وقابلية الدمج.',questions:[
+        {id:'people_leaders',text:'القيادات والموظفون المؤثرون معروفون وخطة استمرارهم واضحة.',critical:true},
+        {id:'people_contracts',text:'عقود الموظفين والأجور والمزايا والمستحقات موثقة.'},
+        {id:'people_localization',text:'وضع التوطين وملفات العمل والالتزام الوظيفي واضح.',critical:true},
+        {id:'people_culture',text:'الفروق الثقافية والحوافز وتحديات دمج الفريق محددة.'}
+      ]},
+      {id:'legal',title:'العقود والالتزامات القانونية',desc:'العقود الجوهرية والنزاعات والحقوق المرتبطة بالنشاط.',questions:[
+        {id:'legal_material',text:'العقود الجوهرية والالتزامات طويلة الأجل محصورة وواضحة.',critical:true},
+        {id:'legal_disputes',text:'النزاعات والمطالبات والقضايا القائمة أو المحتملة معروفة.',critical:true},
+        {id:'legal_ip',text:'ملكية العلامات والأسماء والحقوق الفكرية مرتبطة بالشركة بصورة سليمة.'},
+        {id:'legal_changecontrol',text:'شروط تغير السيطرة والموافقات المطلوبة في العقود محددة.',critical:true}
+      ]},
+      {id:'taxreg',title:'الزكاة والضريبة والتنظيم',desc:'الالتزام الزكوي والضريبي والموافقات المرتبطة بالصفقة.',questions:[
+        {id:'tax_filing',text:'الإقرارات والشهادات الزكوية والضريبية متاحة ومحدثة.',critical:true},
+        {id:'tax_claims',text:'الفحوصات والمطالبات والتسويات الزكوية والضريبية معروفة.',critical:true},
+        {id:'reg_competition',text:'متطلبات التركز الاقتصادي لدى الهيئة العامة للمنافسة جرى التحقق منها.',critical:true},
+        {id:'reg_investment',text:'متطلبات الاستثمار والملكية والتراخيص الخاصة بالنشاط جرى تحديدها.',critical:true}
+      ]},
+      {id:'techrisk',title:'التقنية والبيانات والاستدامة',desc:'قابلية نقل الأنظمة وحماية البيانات والمخاطر الممتدة.',questions:[
+        {id:'tech_systems',text:'الأنظمة والبيانات قابلة للنقل والتكامل مع المشتري.'},
+        {id:'tech_security',text:'مستوى الأمن السيبراني والنسخ الاحتياطية واستمرارية الأنظمة معروف.',critical:true},
+        {id:'tech_dependency',text:'الاعتماد على مزودين أو أنظمة تقنية حرجة محدد.'},
+        {id:'risk_environment',text:'الالتزامات البيئية والصحية والسلامة والسمعة جرى حصرها.'}
+      ]}
+    ];
+    const answerMeta={
+      '3':{label:'مكتمل وواضح',short:'مكتمل',class:'good'},
+      '2':{label:'متوفر جزئيًا',short:'جزئي',class:'watch'},
+      '1':{label:'يحتاج تحقق',short:'تحقق',class:'risk'},
+      '0':{label:'فجوة جوهرية',short:'فجوة',class:'critical'},
+      'na':{label:'خارج نطاق التقييم',short:'خارج النطاق',class:'neutral'}
+    };
+    const defaultState=()=>({route:'',companyName:'',sector:'',evaluator:'',dealType:'استحواذ كامل',stage:'استكشاف أولي',reportDate:today(),preparedBy:'',dealRationale:'',answers:{},notes:{},activeAxis:axes[0].id,updatedAt:''});
+    let state=loadState();let toastTimer;
+    function loadState(){try{const p=JSON.parse(localStorage.getItem(STORAGE_KEY));return p?{...defaultState(),...p,answers:p.answers||{},notes:p.notes||{}}:defaultState()}catch(e){return defaultState()}}
+    function saveState(){state.updatedAt=new Date().toISOString();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){showToast('تعذر حفظ البيانات على الجهاز.')}}
+    function showToast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2200)}
+    function routeLabel(){return state.route==='readiness'?'جاهزية الشركة للاستحواذ عليها':state.route==='target'?'ملاءمة الشركة المستهدفة للاستحواذ':'حدد هدف التقييم'}
+    function companyTerm(){return state.route==='readiness'?'شركتك':state.route==='target'?'الشركة المستهدفة':'الشركة'}
+    function allQuestions(){return axes.flatMap(axis=>axis.questions.map(q=>({...q,axisId:axis.id,axisTitle:axis.title})))}
+    function answerCount(){return allQuestions().filter(q=>state.answers[q.id]!==undefined).length}
+    function scoredQuestions(){return allQuestions().filter(q=>state.answers[q.id]!==undefined&&state.answers[q.id]!=='na')}
+    function completion(){return Math.round(answerCount()/allQuestions().length*100)}
+    function calcScore(items=allQuestions()){
+      let total=0,max=0;
+      items.forEach(q=>{const val=state.answers[q.id];if(val===undefined||val==='na')return;const weight=q.critical?1.25:1;total+=Number(val)*weight;max+=3*weight});
+      return max?Math.round(total/max*100):0;
+    }
+    function axisScore(axis){return calcScore(axis.questions)}
+    function scoreClass(score){return score>=80?'good':score>=65?'watch':score>=45?'risk':'critical'}
+    function statusFor(score){
+      if(state.route==='readiness'){
+        if(score>=85)return{title:'جاهزية قوية للاستحواذ',text:'الأساس المؤسسي والمالي والتشغيلي يدعم الانتقال إلى تقييم مهني منظم.'};
+        if(score>=70)return{title:'جاهزية جيدة مع استكمال',text:'الشركة تملك قاعدة مناسبة، وتحتاج معالجة النقاط ذات الأولوية قبل طرحها للاستحواذ.'};
+        if(score>=50)return{title:'جاهزية متوسطة تحتاج معالجة',text:'توجد عناصر قابلة للبناء، بينما تؤثر الفجوات الحالية في جاذبية الشركة وشروط الصفقة.'};
+        return{title:'جاهزية أولية منخفضة',text:'الأولوية الآن لاستكمال البيانات ومعالجة الفجوات الجوهرية قبل التقدم نحو الاستحواذ.'};
+      }
+      if(state.route==='target'){
+        if(score>=85)return{title:'ملاءمة أولية قوية',text:'المؤشرات الأولية تدعم الانتقال إلى الفحص المهني والتحقق التفصيلي من قيمة الصفقة.'};
+        if(score>=70)return{title:'ملاءمة جيدة مع شروط',text:'الشركة تبدو مناسبة مبدئيًا مع نقاط محددة تحتاج تحققًا أو شروطًا في التفاوض.'};
+        if(score>=50)return{title:'ملاءمة محدودة تحتاج معالجة',text:'الفرصة تحتاج تحليلًا أعمق وربط السعر وشروط الصفقة بالفجوات المكتشفة.'};
+        return{title:'مخاطر أولية مرتفعة',text:'المؤشرات الحالية تستدعي التوقف عند الفجوات الجوهرية قبل استثمار وقت وتكلفة إضافية.'};
+      }
+      return{title:'ابدأ بتحديد هدف التقييم',text:'اختر المسار وأدخل بيانات الشركة ثم أجب عن قائمة التدقيق.'};
+    }
+    function redFlags(){return allQuestions().filter(q=>q.critical&&state.answers[q.id]==='0')}
+    function watchItems(){return allQuestions().filter(q=>state.answers[q.id]==='1'||state.answers[q.id]==='0').sort((a,b)=>(a.critical===b.critical?0:a.critical?-1:1))}
+    function axisRanking(){return axes.map(axis=>({...axis,score:axisScore(axis),answered:axis.questions.filter(q=>state.answers[q.id]!==undefined).length})).sort((a,b)=>b.score-a.score)}
+    function setView(view){$$('.view').forEach(v=>v.classList.toggle('active',v.id===`view-${view}`));$$('.nav-button[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='report')renderReport();window.scrollTo({top:document.querySelector('.app-card').offsetTop-8,behavior:'smooth'})}
+    function renderSetup(){
+      if(state.route){$('setupArea').innerHTML='';return}
+      $('setupArea').innerHTML=`<div class="intro-grid"><section class="panel"><div class="panel-head"><div><h3>ما هدفك من التقييم؟</h3><span>يمكن تغيير المسار لاحقًا من بيانات التقييم</span></div></div><div class="panel-body"><div class="route-grid"><button class="route-card" data-route="readiness"><span class="route-check">✓</span><span class="route-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V8l6-4 6 4v12M9 12h6M9 16h6"/></svg></span><strong>أقيّم جاهزية شركتي للاستحواذ عليها</strong><span>لمعرفة مدى ترتيب الشركة وجاذبيتها قبل دخول مستثمر أو مشترٍ محتمل.</span></button><button class="route-card" data-route="target"><span class="route-check">✓</span><span class="route-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/></svg></span><strong>أقيّم شركة أفكر في الاستحواذ عليها</strong><span>لفرز الملاءمة والفجوات الأولية قبل التفاوض أو تكليف المستشارين.</span></button></div></div></section><section class="start-box"><h3>ابدأ بصورة عملية</h3><p>اختر المسار، ثم أدخل اسم الشركة والقطاع. يمكنك استكمال بقية البيانات لاحقًا.</p><div class="form-grid"><div class="field w12"><label for="quickCompany" style="color:#fff">اسم الشركة محل التقييم</label><input class="control" id="quickCompany" placeholder="اسم الشركة"></div><div class="field w12"><label for="quickSector" style="color:#fff">القطاع</label><input class="control" id="quickSector" placeholder="مثال: المقاهي والمطاعم"></div><div class="field w12"><button class="btn gold" id="quickStart" type="button" disabled>بدء التقييم</button></div></div></section></div>`;
+      let selected='';
+      $$('.route-card').forEach(btn=>btn.addEventListener('click',()=>{selected=btn.dataset.route;$$('.route-card').forEach(x=>x.classList.toggle('selected',x===btn));$('quickStart').disabled=false}));
+      $('quickStart').addEventListener('click',()=>{state.route=selected;state.companyName=$('quickCompany').value.trim();state.sector=$('quickSector').value.trim();saveState();renderAll();setView('assessment');showToast('تم بدء التقييم.');});
+    }
+    function renderRibbon(){return `<div class="org-ribbon"><div><strong>${esc(state.companyName||companyTerm())}</strong><span>${esc(routeLabel())}${state.sector?` · ${esc(state.sector)}`:''}${state.dealType?` · ${esc(state.dealType)}`:''}</span></div><div class="ribbon-actions"><button class="btn soft small" data-go="settings">تعديل البيانات</button><button class="btn primary small" data-go="assessment">متابعة التقييم</button></div></div>`}
+    function renderDashboard(){
+      renderSetup();
+      if(!state.route){$('dashboardArea').innerHTML='';return}
+      const score=calcScore(),status=statusFor(score),rank=axisRanking(),flags=redFlags();
+      $('dashboardArea').innerHTML=`${renderRibbon()}<div class="stats-grid"><div class="stat" style="--stat-bg:#e8eff3"><span class="stat-label">النتيجة الإجمالية</span><strong class="stat-value number">${score}%</strong><span class="stat-note">بحسب الإجابات المسجلة</span></div><div class="stat" style="--stat-bg:#f8f1d9"><span class="stat-label">اكتمال التقييم</span><strong class="stat-value number">${completion()}%</strong><span class="stat-note">${answerCount()} من ${allQuestions().length} نقطة</span></div><div class="stat" style="--stat-bg:#f8dddd"><span class="stat-label">إشارات حمراء</span><strong class="stat-value number">${flags.length}</strong><span class="stat-note">فجوات جوهرية في نقاط مؤثرة</span></div><div class="stat" style="--stat-bg:#e8f4ed"><span class="stat-label">القراءة الحالية</span><strong class="stat-value status-value">${esc(status.title)}</strong><span class="stat-note">تتحدث مع كل إجابة</span></div></div><div class="dashboard-grid"><section class="panel"><div class="panel-head"><div><h3>أداء المحاور التسعة</h3><span>النسبة الحالية لكل محور</span></div><button class="btn soft small" data-go="results">عرض النتيجة</button></div><div class="panel-body"><div class="axis-overview">${rank.map(a=>`<div class="axis-row"><strong>${esc(a.title)}</strong><div class="track"><div class="fill" style="width:${a.answered? a.score:0}%;background:${a.answered?classColor(scoreClass(a.score)):'#cfd6dd'}"></div></div><span class="number">${a.answered?a.score+'%':'—'}</span></div>`).join('')}</div></div></section><section class="panel"><div class="panel-head"><div><h3>أعلى الأولويات</h3><span>المحاور الأقل تقييمًا أو غير المكتملة</span></div></div><div class="panel-body"><div class="priority-list">${rank.slice().sort((a,b)=>(a.answered? a.score:-1)-(b.answered?b.score:-1)).slice(0,4).map(a=>`<div class="priority-card"><span class="priority-score score-${a.answered?scoreClass(a.score):'watch'}">${a.answered?a.score:'—'}</span><div><strong>${esc(a.title)}</strong><span>${a.answered===a.questions.length?'مكتمل المحور':`${a.answered} من ${a.questions.length} إجابات`}</span></div><span class="mini-chip chip-${a.answered?scoreClass(a.score):'neutral'}">${a.answered?scoreLabel(a.score):'بانتظار الإجابة'}</span></div>`).join('')}</div></div></section></div>`;
+      bindGoButtons();
+    }
+    function classColor(cls){return{good:'#35785b',watch:'#c9a84c',risk:'#b45d2f',critical:'#a83d3d'}[cls]}
+    function scoreLabel(score){return score>=80?'قوي':score>=65?'جيد':score>=45?'يحتاج معالجة':'أولوية مرتفعة'}
+    function bindGoButtons(){$$('[data-go]').forEach(b=>b.onclick=()=>setView(b.dataset.go))}
+    function renderAssessment(){
+      if(!state.route){$('assessmentArea').innerHTML='<div class="empty"><strong>حدد هدف التقييم أولًا</strong>ارجع إلى لوحة التقييم واختر المسار المناسب.</div>';return}
+      const active=axes.find(a=>a.id===state.activeAxis)||axes[0];
+      $('assessmentArea').innerHTML=`${renderRibbon()}<div class="progress-wrap"><div class="progress-copy"><strong>تقدم التقييم</strong><span>${answerCount()} من ${allQuestions().length} نقطة</span></div><div class="progress-track"><div class="progress-fill" style="width:${completion()}%"></div></div><span class="progress-number">${completion()}%</span></div><div class="assessment-layout"><aside class="axis-nav">${axes.map((a,i)=>`<button class="axis-nav-button ${a.id===active.id?'active':''}" data-axis="${a.id}"><span>${i+1}. ${esc(a.title)}</span><span>${a.questions.filter(q=>state.answers[q.id]!==undefined).length}/${a.questions.length}</span></button>`).join('')}</aside><div class="axis-card"><div class="axis-card-head"><div class="axis-title-wrap"><span class="axis-number">${axes.indexOf(active)+1}</span><div><h3>${esc(active.title)}</h3><p>${esc(active.desc)}</p></div></div><div class="axis-score-badge"><strong>${active.questions.some(q=>state.answers[q.id]!==undefined)?axisScore(active)+'%':'—'}</strong><span>نتيجة المحور</span></div></div><div class="question-list">${active.questions.map((q,i)=>renderQuestion(q,i)).join('')}</div><div class="axis-actions"><button class="btn soft" id="prevAxis" ${axes.indexOf(active)===0?'disabled':''}>المحور السابق</button><button class="btn primary" id="nextAxis">${axes.indexOf(active)===axes.length-1?'عرض النتائج':'المحور التالي'}</button></div></div></div>`;
+      bindGoButtons();
+      $$('[data-axis]').forEach(b=>b.onclick=()=>{state.activeAxis=b.dataset.axis;saveState();renderAssessment()});
+      $$('.answer').forEach(b=>b.onclick=()=>{state.answers[b.dataset.qid]=b.dataset.value;saveState();renderAllKeepingAssessment()});
+      $$('.question-note').forEach(input=>input.addEventListener('change',()=>{state.notes[input.dataset.qid]=input.value.trim();saveState();renderDashboard();renderResults();renderReport()}));
+      const idx=axes.indexOf(active);$('prevAxis').onclick=()=>{state.activeAxis=axes[idx-1].id;saveState();renderAssessment()};$('nextAxis').onclick=()=>{if(idx===axes.length-1){setView('results')}else{state.activeAxis=axes[idx+1].id;saveState();renderAssessment()}};
+    }
+    function renderAllKeepingAssessment(){renderDashboard();renderAssessment();renderResults();renderReport()}
+    function renderQuestion(q,i){const val=state.answers[q.id];return `<article class="question"><div class="question-head"><div class="question-title">${i+1}. ${esc(adaptText(q.text))}${q.critical?'<span class="critical-mark">نقطة مؤثرة</span>':''}</div><span class="mini-chip chip-${val===undefined?'neutral':answerMeta[val].class}">${val===undefined?'بانتظار الإجابة':answerMeta[val].short}</span></div><div class="answers">${Object.entries(answerMeta).map(([key,meta])=>`<button type="button" class="answer ${val===key?'selected':''}" data-qid="${q.id}" data-value="${key}">${meta.label}</button>`).join('')}</div><input class="control question-note" data-qid="${q.id}" value="${esc(state.notes[q.id]||'')}" placeholder="ملاحظة أو سؤال مطلوب (اختياري)"></article>`}
+    function adaptText(text){return text.replaceAll('الشركة',companyTerm())}
+    function renderResults(){
+      if(!state.route){$('resultsArea').innerHTML='<div class="empty"><strong>ابدأ التقييم أولًا</strong>اختر الهدف وأجب عن قائمة التدقيق لتظهر النتيجة.</div>';return}
+      const score=calcScore(),status=statusFor(score),rank=axisRanking(),flags=redFlags(),watch=watchItems();const strong=rank.filter(a=>a.answered).slice(0,3),weak=rank.filter(a=>a.answered).slice(-3).reverse();
+      const angle=score*3.6;
+      $('resultsArea').innerHTML=`${renderRibbon()}${answerCount()<allQuestions().length?`<div class="guide-callout"><div><strong>التقييم مكتمل بنسبة ${completion()}%</strong><span>استكمال الإجابات يرفع دقة القراءة وترتيب الأولويات.</span></div><button class="btn soft small" data-go="assessment">استكمال التقييم</button></div>`:''}<div class="result-hero"><div class="score-ring" style="background:conic-gradient(var(--gold) ${angle}deg,#ffffff1f ${angle}deg)"><div class="score-ring-content"><strong>${score}%</strong><span>النتيجة الإجمالية</span></div></div><div class="result-copy"><h3>${esc(status.title)}</h3><p>${esc(status.text)} ${completion()<100?'القراءة الحالية مبنية على الإجابات المسجلة حتى الآن.':''}</p><div class="result-actions"><button class="btn gold" data-go="report">فتح التقرير</button><button class="btn soft" data-go="assessment">مراجعة الإجابات</button></div></div></div><div class="insight-grid"><section class="insight"><h3>أقوى المحاور</h3><div class="insight-list">${strong.length?strong.map(a=>`<div class="insight-item strong-item"><span class="insight-dot"></span><div><strong>${esc(a.title)} · ${a.score}%</strong><br><span>${scoreLabel(a.score)}</span></div></div>`).join(''):'<p>تظهر بعد تسجيل الإجابات.</p>'}</div></section><section class="insight"><h3>محاور تحتاج أولوية</h3><div class="insight-list">${weak.length?weak.map(a=>`<div class="insight-item"><span class="insight-dot"></span><div><strong>${esc(a.title)} · ${a.score}%</strong><br><span>${scoreLabel(a.score)}</span></div></div>`).join(''):'<p>تظهر بعد تسجيل الإجابات.</p>'}</div></section><section class="insight"><h3>الإشارات الحمراء</h3><div class="insight-list">${flags.length?flags.slice(0,5).map(q=>`<div class="insight-item red-flag"><span class="insight-dot"></span><div>${esc(adaptText(q.text))}</div></div>`).join(''):'<div class="insight-item strong-item"><span class="insight-dot"></span><div>عدد الفجوات الجوهرية في النقاط المؤثرة: 0.</div></div>'}</div></section></div><div class="recommendation"><strong>الخطوة العملية التالية:</strong> ${nextStepText(score,flags.length,watch.length)}</div>`;
+      bindGoButtons();
+    }
+    function nextStepText(score,flagsCount,watchCount){
+      if(completion()<65)return'استكمل قائمة التدقيق أولًا، خصوصًا المحاور المالية والقانونية والتنظيمية، ثم أعد قراءة النتيجة.';
+      if(flagsCount)return`ابدأ بمعالجة أو التحقق من ${flagsCount} إشارة حمراء، وحولها إلى أسئلة ومستندات مطلوبة قبل التفاوض المتقدم.`;
+      if(score>=80)return'حدد نطاق الفحص المهني، جهز قائمة المستندات، واربط السعر وشروط الصفقة بالافتراضات التي تحتاج تحققًا.';
+      return`رتب ${watchCount} نقطة تحتاج تحققًا بحسب أثرها، وحدد المسؤول والمعلومة المطلوبة لكل نقطة قبل اتخاذ قرار التقدم.`;
+    }
+    function renderSettings(){
+      $$('.state-field').forEach(el=>{const key=el.dataset.key;el.value=state[key]??''});
+      $('companyNameLabel').textContent=state.route==='readiness'?'اسم شركتك':state.route==='target'?'اسم الشركة المستهدفة':'اسم الشركة';
+    }
+    function renderReport(){
+      const score=calcScore(),status=statusFor(score),rank=axisRanking(),flags=redFlags(),watch=watchItems(),date=state.reportDate||today();
+      const header=()=>`<div class="report-head"><div class="report-brand"><img src="./tool-icon.svg" alt=""><div><strong>محرك الفحص المسبق للاستحواذ والاندماج</strong><span>تقييم استرشادي أولي</span></div></div><div class="report-org"><strong>${esc(state.companyName||companyTerm())}</strong><span>${esc(state.sector||'القطاع: قيد التحديد')} · ${esc(state.dealType||'')}</span></div></div>`;
+      const footer=(page,total)=>`<div class="report-footer"><div class="report-footer-owner"><strong>نايف المحمدي</strong><span>مستشار الحوكمة وتطوير الأعمال</span></div><span class="report-page-number">${page}/${total}</span><div class="report-footer-tool"><div><strong>تقييم استرشادي أولي</strong></div><img src="./tool-icon.svg" alt=""></div></div>`;
+      const title=`<div class="report-title"><small>${esc(routeLabel())}</small><h2>تقرير التقييم المسبق</h2><p>تاريخ التقييم: ${esc(date)} · مرحلة الصفقة: ${esc(state.stage)}</p></div>`;
+      const pages=[];
+      pages.push(`${header()}${title}<div class="report-stats"><div class="report-stat gold"><span>النتيجة الإجمالية</span><strong>${score}%</strong></div><div class="report-stat green"><span>اكتمال التقييم</span><strong>${completion()}%</strong></div><div class="report-stat red"><span>إشارات حمراء</span><strong>${flags.length}</strong></div><div class="report-stat"><span>نقاط تحتاج تحققًا</span><strong>${watch.length}</strong></div></div><div class="report-summary"><strong>${esc(status.title)}.</strong> ${esc(status.text)} ${state.dealRationale?`الهدف المسجل للصفقة: ${esc(state.dealRationale)}.`:''}</div><section class="report-section"><h3>نتائج المحاور</h3><div class="report-axis-grid">${rank.map(a=>`<div class="report-axis"><div class="report-axis-head"><span>${esc(a.title)}</span><span>${a.answered?a.score+'%':'—'}</span></div><div class="track"><div class="fill" style="width:${a.answered?a.score:0}%;background:${a.answered?classColor(scoreClass(a.score)):'#cfd6dd'}"></div></div></div>`).join('')}</div></section>${footer(1,5)}`);
+      pages.push(`${header()}<div class="report-title"><small>أولويات القرار</small><h2>الفجوات والخطوات القادمة</h2><p>${esc(state.companyName||companyTerm())} · ${esc(date)}</p></div><section class="report-section"><h3>القراءة الأولية</h3><div class="report-note">${esc(nextStepText(score,flags.length,watch.length))}</div></section><section class="report-section"><h3>الإشارات الحمراء</h3>${flags.length?`<ul class="report-list">${flags.slice(0,8).map(q=>`<li>${esc(adaptText(q.text))}${state.notes[q.id]?` — ${esc(state.notes[q.id])}`:''}</li>`).join('')+(flags.length>8?`<li>إشارات إضافية: ${flags.length-8}</li>`:'')}</ul>`:'<div class="report-note">عدد الفجوات الجوهرية في النقاط المؤثرة وفق الإجابات الحالية: 0.</div>'}</section><section class="report-section"><h3>أبرز نقاط التحقق</h3>${watch.length?`<ul class="report-list">${watch.slice(0,10).map(q=>`<li>${esc(adaptText(q.text))}${state.notes[q.id]?` — ${esc(state.notes[q.id])}`:''}</li>`).join('')}</ul>${watch.length>10?`<div class="report-note" style="margin-top:7px">نقاط إضافية تحتاج تحققًا: ${watch.length-10}</div>`:''}`:'<div class="report-note">تظهر نقاط التحقق بعد تسجيل إجابات «يحتاج تحقق» أو «فجوة جوهرية».</div>'}</section><section class="report-section"><h3>بيانات التقييم</h3><table class="report-table"><tbody><tr><th>هدف التقييم</th><td>${esc(routeLabel())}</td><th>نوع العملية</th><td>${esc(state.dealType)}</td></tr><tr><th>القائم بالتقييم</th><td>${esc(state.evaluator||'—')}</td><th>أعد التقييم</th><td>${esc(state.preparedBy||'—')}</td></tr></tbody></table></section>${footer(2,5)}`);
+      for(let group=0;group<3;group++){
+        const groupAxes=axes.slice(group*3,group*3+3);const page=group+3;
+        pages.push(`${header()}<div class="report-title"><small>تفاصيل الإجابات</small><h2>المحاور ${group*3+1} إلى ${group*3+3}</h2><p>${esc(state.companyName||companyTerm())} · ${esc(date)}</p></div>${groupAxes.map(axis=>`<section class="report-axis-detail"><h4><span>${esc(axis.title)}</span><span>${axis.questions.some(q=>state.answers[q.id]!==undefined)?axisScore(axis)+'%':'—'}</span></h4><table class="report-table"><thead><tr><th>نقطة التدقيق</th><th>الإجابة</th><th>الملاحظة</th></tr></thead><tbody>${axis.questions.map(q=>{const v=state.answers[q.id];return`<tr><td>${esc(adaptText(q.text))}${q.critical?' *':''}</td><td>${v===undefined?'بانتظار الإجابة':esc(answerMeta[v].label)}</td><td>${esc(state.notes[q.id]||'—')}</td></tr>`}).join('')}</tbody></table></section>`).join('')}${footer(page,5)}`);
+      }
+      $('reportDocument').innerHTML=pages.map(html=>`<section class="report-page">${html}</section>`).join('');
+    }
+    function exportCsv(){
+      const rows=[['المحور','نقطة التدقيق','نقطة مؤثرة','الإجابة','الملاحظة']];
+      axes.forEach(axis=>axis.questions.forEach(q=>{const v=state.answers[q.id];rows.push([axis.title,adaptText(q.text),q.critical?'نعم':'',v===undefined?'':answerMeta[v].label,state.notes[q.id]||''])}));
+      const csv='\ufeff'+rows.map(row=>row.map(cell=>`"${String(cell).replaceAll('"','""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`قائمة-التقييم-المسبق-${(state.companyName||'الشركة').replace(/\s+/g,'-')}.csv`;a.click();URL.revokeObjectURL(a.href);
+    }
+    function renderAll(){renderDashboard();renderAssessment();renderResults();renderSettings();renderReport()}
+    $$('.nav-button[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+    $('continueAssessment').onclick=()=>setView('assessment');$('openGuide').onclick=()=>$('guideDialog').showModal();$('closeGuide').onclick=()=>$('guideDialog').close();$('closeGuideButton').onclick=()=>{$('guideDialog').close();setView(state.route?'assessment':'dashboard')};
+    $('refreshReport').onclick=()=>{renderReport();showToast('تم تحديث التقرير.')};$('printReport').onclick=()=>{renderReport();const old=document.title;document.title=`تقرير التقييم المسبق - ${state.companyName||'الشركة'}`;window.print();setTimeout(()=>document.title=old,600)};$('exportCsv').onclick=exportCsv;
+    $$('.state-field').forEach(el=>el.addEventListener('change',()=>{state[el.dataset.key]=el.value;saveState();renderAll();showToast('تم حفظ بيانات التقييم.')}));
+    $('resetAll').onclick=()=>{if(confirm('سيتم مسح جميع البيانات والإجابات المحفوظة على هذا الجهاز.')){state=defaultState();saveState();renderAll();setView('dashboard');showToast('تم بدء تقييم جديد.')}};
+    renderAll();
+  })();
+  </script>
+</body>
+</html>
