@@ -1,0 +1,81 @@
+/* Hatta 2.0 · 25-10-2026. Font URLs point to the canonical guide. */
+@font-face{font-family:"El Messiri";font-style:normal;font-weight:400;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/el-messiri-400.woff2") format("woff2")}
+@font-face{font-family:"El Messiri";font-style:normal;font-weight:600;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/el-messiri-600.woff2") format("woff2")}
+@font-face{font-family:"El Messiri";font-style:normal;font-weight:700;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/el-messiri-700.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Serif Display";font-style:normal;font-weight:400;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-serif-display-400.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Serif Display";font-style:normal;font-weight:700;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-serif-display-700.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Serif Display";font-style:normal;font-weight:900;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-serif-display-900.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Sans";font-style:normal;font-weight:400;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-sans-400.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Sans";font-style:normal;font-weight:500 600;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-sans-500-600.woff2") format("woff2")}
+@font-face{font-family:"Thmanyah Sans";font-style:normal;font-weight:700 900;font-display:swap;src:url("https://almohammdin.github.io/hatta-brand-guide/assets/fonts/thmanyah-sans-700-900.woff2") format("woff2")}
+:root{--hatta-navy:#061f56;--hatta-navy-secondary:#0b2f75;--hatta-gold:#b47a2d;--hatta-gold-text:#8a5b20;--hatta-gold-light:#e6d2ae;--hatta-paper:#fbfaf7;--hatta-ink:#17233c;--hatta-muted:#657084;--hatta-success:#087a55;--hatta-danger:#b42318;--hatta-radius:16px}
+.hatta-body,.hatta-control{font-family:"Thmanyah Sans",Tahoma,sans-serif;font-feature-settings:"salt" 0;font-synthesis:none;line-height:1.8}
+.hatta-display{font-family:"Thmanyah Serif Display",serif;font-weight:900;font-feature-settings:"salt" 1;line-height:1.25}
+.hatta-subheading{font-family:"Thmanyah Sans",Tahoma,sans-serif;font-weight:500;font-feature-settings:"salt" 1;line-height:1.45}
+.hatta-en{font-family:"El Messiri",Arial,sans-serif;direction:ltr;unicode-bidi:isolate}
+.hatta-card{border:1px solid #e0e3e9;border-radius:var(--hatta-radius);background:white;padding:24px;color:var(--hatta-ink)}
+.hatta-button{font:500 16px/1.5 "Thmanyah Sans",sans-serif;font-feature-settings:"salt" 0;min-height:44px;padding:10px 20px;border:1px solid var(--hatta-navy);border-radius:10px;background:var(--hatta-navy);color:white;cursor:pointer}
+.hatta-button:focus-visible{outline:3px solid var(--hatta-gold-text);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.hatta-animated{animation:none!important;transition:none!important}}
+
+/* Original artwork; the SVG viewport excludes transparent source margins. */
+.hatta-wordmark{display:block;width:224px;max-width:100%;height:auto;aspect-ratio:746/269;overflow:hidden;flex-shrink:0}
+.naif-wordmark{display:block;width:96px;max-width:100%;aspect-ratio:557/258;color:var(--navy,#061f56);flex-shrink:0}
+.naif-wordmark--light{color:#fff}
+.naif-wordmark>img{display:block;width:100%;max-width:100%;height:auto;margin:0;filter:brightness(0)}
+.naif-wordmark--light>img{filter:none}
+@supports ((mask-image:url("https://almohammdin.github.io/hatta-brand-guide/assets/naif-signature.webp")) or (-webkit-mask-image:url("https://almohammdin.github.io/hatta-brand-guide/assets/naif-signature.webp"))){
+.naif-wordmark{background-color:currentColor;-webkit-mask:url("https://almohammdin.github.io/hatta-brand-guide/assets/naif-signature.webp") center/contain no-repeat;mask:url("https://almohammdin.github.io/hatta-brand-guide/assets/naif-signature.webp") center/contain no-repeat}
+.naif-wordmark>img{opacity:0;filter:none}
+}
+@media print{.naif-wordmark{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* Identity only; assessment status colors and application logic are retained. */
+:root{--navy:#061f56;--navy2:#0b2f75;--gold:#b47a2d;--gold2:#e6d2ae;--ink:#17233c;--muted:#657084;--soft:#f6f5f1;--cream:#fbfaf7;--font:"Thmanyah Sans",Tahoma,sans-serif;--shadow:0 8px 24px rgba(6,31,86,.05)}
+body{background:var(--cream);font-feature-settings:"salt" 0;font-synthesis:none}
+h1,h2{font-family:"Thmanyah Serif Display",serif;font-feature-settings:"salt" 1;font-weight:700;line-height:1.35}
+h1{font-weight:900}
+h3,h4,.route-card strong,.panel-head h3{font-family:"Thmanyah Sans",sans-serif;font-feature-settings:"salt" 1;font-weight:500;line-height:1.5}
+button,input,select,textarea,table{font-family:var(--font);font-feature-settings:"salt" 0}
+.btn,.nav-button{font-weight:500}
+.latin,.number,.version,.social-name,.report-footer-link,.report-page-number,[lang="en"]{font-family:"El Messiri",sans-serif}
+.hero{background:var(--cream);color:var(--ink);padding:12px 20px 16px;border-bottom:1px solid var(--line)}
+.hero:before,.hero:after{display:none}
+.hero-inner{display:flex;align-items:center;gap:32px}
+.identity{flex:0 0 auto}
+.hatta-home{display:block;text-decoration:none;flex-shrink:0}
+.hatta-wordmark{width:150px}
+.tool-identity{flex:1;min-width:0;max-width:none;margin:0;text-align:right}
+.tool-logo-card{width:100%;margin:0 0 5px;border:0;border-radius:0;background:transparent;box-shadow:none;padding:0;justify-content:flex-start}
+.tool-logo-card img{width:320px;max-width:100%;max-height:82px;object-position:right;margin:0}
+.tool-copy{max-width:none;margin:0}
+.tool-copy p{color:var(--muted);font-size:13px;line-height:1.7}
+.suite-badge-wrap{margin:10px auto 12px}
+.suite-badge{box-shadow:none}
+.start-box,.result-hero{background:var(--navy)}
+.score-ring:after{background:var(--navy)}
+.start-box .field label{color:#fff}
+.btn.gold{background:var(--navy);color:#fff}
+.btn.gold:hover{background:var(--navy2)}
+.control:focus{border-color:var(--gold);box-shadow:0 0 0 3px #e6d2ae66}
+.section-head h2{font-size:26px}
+.app-shell{margin-bottom:18px}
+.site-footer{padding:0 18px max(10px,env(safe-area-inset-bottom));text-align:right}
+.hatta-footer-row{border-top:1px solid var(--line);padding-top:10px;display:flex;align-items:center;gap:18px}
+.site-footer .naif-wordmark{width:64px}
+.footer-line{justify-content:flex-start;flex:1;gap:4px 10px;font-size:10px}
+.version{color:var(--muted)}
+.hatta-social-group{display:flex;align-items:center;gap:10px}
+.social-name{margin:0;font-size:10px;color:var(--navy)}
+.socials{gap:4px}
+.social-link{width:32px;height:32px;border-color:transparent;background:transparent}
+.social-link:hover{background:#f6f1e8;border-color:#e6d2ae}
+.privacy-note{color:var(--muted);font-size:11px;line-height:1.7;margin:8px 0 0}
+:focus-visible{outline:3px solid #8a5b20;outline-offset:3px}
+@media(max-width:650px){
+.hero{padding:10px 14px 12px}.hero-inner{gap:12px;flex-wrap:wrap}.tool-identity{flex-basis:100%}
+.tool-logo-card img{width:290px;max-height:65px}.tool-copy p{font-size:12px}
+.hatta-footer-row{flex-wrap:wrap;gap:10px 18px}.footer-line{flex-basis:100%;order:3}.hatta-social-group{order:4;width:100%;justify-content:space-between}
+.privacy-note{font-size:10px}.section-head h2{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
